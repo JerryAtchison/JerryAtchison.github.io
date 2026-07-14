@@ -1,0 +1,172 @@
+<!DOCTYPE html>
+
+<html lang="en">
+<head>
+<meta charset="utf-8"/>
+<meta content="width=device-width,initial-scale=1" name="viewport"/>
+<meta content="GadgetMotion Hybrid Cisco–AWS Robotics Network project by Jerry Atchison." name="description"/>
+<meta content="#07111f" name="theme-color"/>
+<title>GadgetMotion Hybrid Cisco–AWS Robotics Network | Jerry Atchison</title>
+<link href="../assets/favicon.svg" rel="icon" type="image/svg+xml"/>
+<link href="../styles.css" rel="stylesheet"/>
+</head>
+<body>
+<a class="skip-link" href="#main">Skip to content</a>
+<header class="site-header">
+<div class="container nav">
+<a class="brand" href="../index.html"><span class="brand-mark">JA</span><span>Jerry Atchison</span></a>
+<button aria-controls="primary-nav" aria-expanded="false" class="menu-button">Menu</button>
+<nav aria-label="Primary navigation" class="nav-links" id="primary-nav">
+<a href="../index.html#featured">Featured</a>
+<a href="../index.html#more-projects">More projects</a>
+<a href="../index.html#skills">Skills</a>
+<a href="../index.html#experience">Experience</a>
+<a href="../index.html#contact">Contact</a>
+</nav>
+</div>
+</header>
+<main id="main">
+<section class="project-hero">
+<div class="container">
+<div class="eyebrow">Bachelor of Science in Cloud and Network Engineering • Implemented network capstone</div>
+<h1>GadgetMotion Hybrid Cisco–AWS Robotics Network</h1>
+<p class="lead">Implemented a Cisco CML and AWS hybrid network that separated engineering, robot-testing, and firmware systems while extending controlled access to cloud simulation and logging services through an IPsec site-to-site VPN.</p>
+<div class="hero-actions">
+<a class="button secondary" href="../index.html#featured">← Back to portfolio</a>
+<a class="button primary" href="../assets/project-artifacts/gadgetmotion-hybrid-architecture.png" rel="noopener" target="_blank">Open full architecture diagram</a><a class="button secondary" href="../assets/resume/Jerry_Atchison_Resume.pdf">View résumé</a>
+</div>
+</div>
+</section>
+<section class="project-content-section">
+<div class="container project-layout">
+<article class="article">
+<figure class="architecture-figure">
+<a href="../assets/project-artifacts/gadgetmotion-hybrid-architecture.png" rel="noopener" target="_blank">
+<img alt="Complete GadgetMotion hybrid Cisco and AWS network architecture" src="../assets/project-artifacts/gadgetmotion-hybrid-architecture.png"/>
+</a>
+<figcaption>Complete hybrid architecture showing the three on-premises VLANs, Cisco routing and ACL enforcement, two AWS subnets, and the IPsec VPN connection. Select the diagram to open it at full resolution.</figcaption>
+</figure>
+<div class="role-note">
+<strong>My role:</strong> I designed the topology, configured the Cisco switching and routing, built the AWS network, established the VPN, created the access-control policies, troubleshot connectivity, and documented repeatable validation steps.
+</div>
+<div class="kpi-grid">
+<div class="kpi"><strong>3 VLANs</strong><span>Engineers, robot testing, and firmware services</span></div>
+<div class="kpi"><strong>2 AWS subnets</strong><span>Simulation and log-analysis workloads</span></div>
+<div class="kpi"><strong>8 test areas</strong><span>Layer 2, Layer 3, cloud, VPN, and security</span></div>
+</div>
+<h2>Project objective</h2>
+<p>GadgetMotion needed a private environment for prototype robot designs and firmware while still allowing approved systems to use AWS simulation and logging resources. I built the solution as a hybrid lab so the on-premises and cloud networks could communicate over an encrypted connection without placing protected systems directly on the public internet.</p>
+<h2>Architecture and segmentation</h2>
+<div class="architecture-summary-grid">
+<section class="summary-card">
+<h3>On-premises Cisco network</h3>
+<p>Two IOSvL2 switches carried three VLANs over an 802.1Q trunk. VLAN 10 supported engineering workstations, VLAN 20 contained robot-test systems, and VLAN 30 hosted the firmware/configuration server. Router R1 provided router-on-a-stick inter-VLAN routing, DHCP for the user VLANs, and ACL enforcement.</p>
+</section>
+<section class="summary-card">
+<h3>AWS network</h3>
+<p>The AWS VPC used a 10.0.0.0/16 address range with a simulation subnet and a log-analysis subnet. Route tables provided internal VPC routing, the simulation server used dynamically assigned addressing, and the logging server retained a static private address.</p>
+</section>
+<section class="summary-card">
+<h3>Hybrid connection</h3>
+<p>An IPsec site-to-site VPN connected R1 to an AWS Virtual Private Gateway. AWS route tables included the on-premises networks, and security groups extended the access policy across the hybrid boundary.</p>
+</section>
+</div>
+<h2>Eight validation areas</h2>
+<ol class="test-matrix">
+<li><strong>VLAN and trunk segmentation</strong><span>Verified VLAN membership, access ports, the SW1–SW2 trunk, same-VLAN communication, and Layer 2 paths.</span></li>
+<li><strong>DHCP and static addressing</strong><span>Validated DHCP pools for the engineering and robot VLANs while the firmware server retained a static address.</span></li>
+<li><strong>Inter-VLAN reachability and ACLs</strong><span>Allowed engineers to reach the firmware server while denying the robot VLAN.</span></li>
+<li><strong>AWS subnet segmentation</strong><span>Confirmed the VPC, two /24 subnets, route-table associations, and internal cloud routing.</span></li>
+<li><strong>Cloud addressing and external routing</strong><span>Checked dynamic and static cloud addressing, Internet Gateway routing, and outbound connectivity.</span></li>
+<li><strong>Cloud security-group behavior</strong><span>Tested allowed and denied communication between EC2 instances in separate subnets.</span></li>
+<li><strong>IPsec VPN operation</strong><span>Verified tunnel status, ISAKMP and IPsec security associations, routes, packet counters, and bidirectional traffic.</span></li>
+<li><strong>Hybrid network security</strong><span>Allowed the engineering and server VLANs to reach the simulation server while blocking the robot VLAN at the AWS boundary.</span></li>
+</ol>
+<h2>Selected validation evidence</h2>
+<p>The screenshots below come from the functionality testing I performed in Cisco Modeling Labs and AWS. They show the configured VLANs, successful permitted traffic, intentional denials, and communication across the hybrid connection.</p>
+<div class="validation-grid">
+<figure class="validation-shot">
+<a href="../assets/project-artifacts/gadgetmotion-vlan-inventory.png" rel="noopener" target="_blank">
+<img alt="VLAN tables on GadgetMotion switches" loading="lazy" src="../assets/project-artifacts/gadgetmotion-vlan-inventory.png"/>
+</a>
+<figcaption>VLANs 10, 20, and 30 configured across both switches with the expected access-port assignments.</figcaption>
+</figure>
+<figure class="validation-shot">
+<a href="../assets/project-artifacts/gadgetmotion-layer2-validation.png" rel="noopener" target="_blank">
+<img alt="Same-VLAN connectivity validation in Cisco CML" loading="lazy" src="../assets/project-artifacts/gadgetmotion-layer2-validation.png"/>
+</a>
+<figcaption>Same-VLAN ping and traceroute tests completed with 0% packet loss and a direct Layer 2 path.</figcaption>
+</figure>
+<figure class="validation-shot">
+<a href="../assets/project-artifacts/gadgetmotion-acl-configuration.png" rel="noopener" target="_blank">
+<img alt="Cisco ACL that blocks robot systems from the firmware server" loading="lazy" src="../assets/project-artifacts/gadgetmotion-acl-configuration.png"/>
+</a>
+<figcaption>The ACL denied the robot subnet from reaching the protected firmware server and permitted other traffic.</figcaption>
+</figure>
+<figure class="validation-shot">
+<a href="../assets/project-artifacts/gadgetmotion-engineer-allowed.png" rel="noopener" target="_blank">
+<img alt="Engineer workstation successfully reaching firmware server" loading="lazy" src="../assets/project-artifacts/gadgetmotion-engineer-allowed.png"/>
+</a>
+<figcaption>Authorized engineering traffic reached the firmware server with 0% packet loss.</figcaption>
+</figure>
+<figure class="validation-shot">
+<a href="../assets/project-artifacts/gadgetmotion-robot-blocked.png" rel="noopener" target="_blank">
+<img alt="Robot test system blocked from firmware server" loading="lazy" src="../assets/project-artifacts/gadgetmotion-robot-blocked.png"/>
+</a>
+<figcaption>The robot-test VLAN was intentionally denied, producing 100% packet loss.</figcaption>
+</figure>
+<figure class="validation-shot">
+<a href="../assets/project-artifacts/gadgetmotion-vpn-connectivity.png" rel="noopener" target="_blank">
+<img alt="Engineering workstation reaching both AWS servers through the VPN" loading="lazy" src="../assets/project-artifacts/gadgetmotion-vpn-connectivity.png"/>
+</a>
+<figcaption>An engineering workstation reached both AWS subnets across the site-to-site VPN.</figcaption>
+</figure>
+<figure class="validation-shot">
+<a href="../assets/project-artifacts/gadgetmotion-hybrid-policy-change.png" rel="noopener" target="_blank">
+<img alt="Robot VLAN permitted before and blocked after AWS security group policy change" loading="lazy" src="../assets/project-artifacts/gadgetmotion-hybrid-policy-change.png"/>
+</a>
+<figcaption>Before-and-after testing showed the robot VLAN become blocked after the AWS security-group rule was removed.</figcaption>
+</figure>
+<figure class="validation-shot">
+<a href="../assets/project-artifacts/gadgetmotion-engineer-cloud-access.png" rel="noopener" target="_blank">
+<img alt="Engineering VLAN remains allowed to AWS simulation server" loading="lazy" src="../assets/project-artifacts/gadgetmotion-engineer-cloud-access.png"/>
+</a>
+<figcaption>The engineering VLAN remained permitted to reach the simulation server after the policy change.</figcaption>
+</figure>
+</div>
+<h2>Results</h2>
+<ul>
+<li>Verified VLAN membership, 802.1Q trunking, DHCP, static addressing, routing, and ACL placement.</li>
+<li>Confirmed permitted paths with successful replies and 0% packet loss.</li>
+<li>Confirmed intended denied paths with 100% packet loss.</li>
+<li>Validated VPC subnet routing, route-table entries, and security-group enforcement.</li>
+<li>Confirmed both VPN tunnels were operational and observed encrypted packet counters increase during testing.</li>
+<li>Demonstrated bidirectional connectivity between approved on-premises systems and AWS resources.</li>
+</ul>
+<h2>Troubleshooting work</h2>
+<ul>
+<li>Learned that Cisco Modeling Labs required fetching each device configuration rather than downloading only the topology, preventing configuration loss between sessions.</li>
+<li>Diagnosed asymmetric ACL behavior when return traffic to the robot VLAN was denied on the inbound VLAN 20 subinterface.</li>
+<li>Determined the external endpoint presented through the CML NAT environment so the AWS customer gateway and VPN could be configured correctly.</li>
+<li>Checked route tables, tunnel status, ISAKMP and IPsec security associations, and packet counters when validating end-to-end reachability.</li>
+</ul>
+<h2>What I would improve next</h2>
+<ul>
+<li>Add redundant routing and switching and test failover behavior.</li>
+<li>Centralize Cisco syslog, AWS VPC Flow Logs, and tunnel monitoring.</li>
+<li>Automate repeatable Cisco and AWS configuration while storing VPN secrets securely.</li>
+</ul>
+</article>
+<aside class="sidebar"><div class="panel meta-list"><div class="meta-item"><strong>Degree</strong><span>Bachelor of Science in Cloud and Network Engineering</span></div><div class="meta-item"><strong>Project type</strong><span>Implemented network capstone</span></div><div class="meta-item"><strong>My role</strong><span>Hybrid network architecture, Cisco switching and routing, AWS VPC design, IPsec VPN configuration, security policy, troubleshooting, and validation</span></div><div class="meta-item"><strong>Technologies and methods</strong><span>Cisco CML, IOSv, IOSvL2, 802.1Q, DHCP, router-on-a-stick, ACLs, AWS VPC, EC2, route tables, security groups, Virtual Private Gateway, and IPsec</span></div></div><div class="panel"><h3>Skills demonstrated</h3><div class="tags"><span class="tag">Cisco CML</span><span class="tag">802.1Q</span><span class="tag">Router-on-a-Stick</span><span class="tag">ACLs</span><span class="tag">AWS VPC</span><span class="tag">EC2</span><span class="tag">Security Groups</span><span class="tag">IPsec VPN</span></div></div></aside>
+</div>
+</section>
+</main>
+<footer>
+<div class="container footer-row">
+<span>© <span data-year=""></span> Jerry Atchison</span>
+<span>Cloud, networking, security, and computer science portfolio</span>
+</div>
+</footer>
+<script src="../script.js"></script>
+</body>
+</html>

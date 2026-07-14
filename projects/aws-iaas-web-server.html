@@ -1,0 +1,57 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width,initial-scale=1">
+  <meta name="description" content="Secure AWS IaaS Web Server Deployment project by Jerry Atchison.">
+  <meta name="theme-color" content="#07111f">
+  <title>Secure AWS IaaS Web Server Deployment | Jerry Atchison</title>
+  <link rel="icon" href="../assets/favicon.svg" type="image/svg+xml">
+  <link rel="stylesheet" href="../styles.css">
+</head>
+<body>
+<a class="skip-link" href="#main">Skip to content</a>
+<header class="site-header">
+  <div class="container nav">
+    <a class="brand" href="../index.html"><span class="brand-mark">JA</span><span>Jerry Atchison</span></a>
+    <button class="menu-button" aria-expanded="false" aria-controls="primary-nav">Menu</button>
+    <nav id="primary-nav" class="nav-links" aria-label="Primary navigation">
+      <a href="../index.html#featured">Featured</a>
+      <a href="../index.html#more-projects">More projects</a>
+      <a href="../index.html#skills">Skills</a>
+      <a href="../index.html#experience">Experience</a>
+      <a href="../index.html#contact">Contact</a>
+    </nav>
+  </div>
+</header>
+<main id="main">
+  <section class="project-hero">
+    <div class="container">
+      <div class="eyebrow">Bachelor of Science in Cloud and Network Engineering • Implemented AWS lab</div>
+      <h1>Secure AWS IaaS Web Server Deployment</h1>
+      <p class="lead">An implemented AWS IaaS deployment focused on secure compute, storage encryption, network access, and operational visibility.</p>
+      <div class="hero-actions">
+        <a class="button secondary" href="../index.html#featured">← Back to portfolio</a>
+        <a class="button primary" href="../assets/resume/Jerry_Atchison_Resume.pdf">View résumé</a>
+      </div>
+    </div>
+  </section>
+  <section class="project-content-section">
+    <div class="container project-layout">
+      <article class="article">
+        <div class="artifact-gallery two"><figure class="artifact-frame"><img src="../assets/project-artifacts/aws-iaas-encryption.png" alt="AWS encrypted storage configuration"><figcaption>Encrypted EBS storage configuration used in the AWS deployment.</figcaption></figure><figure class="artifact-frame"><img src="../assets/project-artifacts/aws-iaas-monitoring.png" alt="AWS EC2 monitoring metrics"><figcaption>Cloud monitoring metrics from the deployed EC2 environment.</figcaption></figure></div>
+        <h2>Project objective</h2><p>Deploy a functioning web server while applying least-privilege network access, encrypted storage, key management, monitoring, and recovery planning.</p><h2>What I produced</h2><ul><li>Launched an EC2 instance inside a purpose-built VPC and subnet.</li><li>Configured security-group rules for controlled administrative and web access.</li><li>Attached encrypted EBS storage using AWS Key Management Service.</li><li>Installed and validated an Apache web service and configured monitoring through CloudWatch.</li><li>Documented screenshots and configuration evidence for the deployed environment.</li></ul><h2>Key decisions</h2><ul><li>Use security groups to limit inbound access by protocol and source.</li><li>Encrypt persistent storage and manage the encryption key separately from the instance.</li><li>Monitor instance health and utilization so operational issues can be identified quickly.</li><li>Document backup and recovery considerations instead of treating successful launch as the end of deployment.</li></ul><div class="kpi-grid"><div class="kpi"><strong>1 secure server</strong><span>Deployed and validated in AWS</span></div><div class="kpi"><strong>Encrypted storage</strong><span>EBS protected with KMS</span></div><div class="kpi"><strong>Operational visibility</strong><span>CloudWatch monitoring enabled</span></div></div><h2>Validation and analysis</h2><ul><li>Confirmed the instance state, addressing, storage encryption, security rules, and web response.</li><li>Verified monitoring data and documented the deployment sequence.</li><li>Reviewed the design for confidentiality, integrity, availability, and recoverability.</li></ul><h2>What I would improve next</h2><ul><li>Place the server behind an Application Load Balancer and remove direct public administration.</li><li>Use Systems Manager Session Manager instead of SSH.</li><li>Automate the deployment with CloudFormation or Terraform.</li><li>Add automated snapshots, patching, and log centralization.</li></ul>
+      </article>
+      <aside class="sidebar"><div class="panel meta-list"><div class="meta-item"><strong>Degree</strong><span>Bachelor of Science in Cloud and Network Engineering</span></div><div class="meta-item"><strong>Project type</strong><span>Implemented AWS lab</span></div><div class="meta-item"><strong>My role</strong><span>AWS provisioning, Linux configuration, security hardening, testing, and documentation</span></div><div class="meta-item"><strong>Technologies and methods</strong><span>AWS EC2, VPC, security groups, EBS, KMS, Apache, CloudWatch, Linux</span></div></div><div class="panel"><h3>Skills demonstrated</h3><div class="tags"><span class="tag">AWS EC2</span><span class="tag">VPC</span><span class="tag">KMS</span><span class="tag">EBS</span><span class="tag">CloudWatch</span></div></div></aside>
+    </div>
+  </section>
+</main>
+<footer>
+  <div class="container footer-row">
+    <span>© <span data-year></span> Jerry Atchison</span>
+    <span>Cloud, networking, security, and computer science portfolio</span>
+  </div>
+</footer>
+<script src="../script.js"></script>
+</body>
+</html>

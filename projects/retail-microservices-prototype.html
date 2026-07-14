@@ -1,0 +1,90 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width,initial-scale=1">
+  <meta name="description" content="Retail Microservices Architecture and Prototype project by Jerry Atchison.">
+  <meta name="theme-color" content="#07111f">
+  <title>Retail Microservices Architecture and Prototype | Jerry Atchison</title>
+  <link rel="icon" href="../assets/favicon.svg" type="image/svg+xml">
+  <link rel="stylesheet" href="../styles.css">
+</head>
+<body>
+<a class="skip-link" href="#main">Skip to content</a>
+<header class="site-header">
+  <div class="container nav">
+    <a class="brand" href="../index.html"><span class="brand-mark">JA</span><span>Jerry Atchison</span></a>
+    <button class="menu-button" aria-expanded="false" aria-controls="primary-nav">Menu</button>
+    <nav id="primary-nav" class="nav-links" aria-label="Primary navigation">
+      <a href="../index.html#featured">Featured</a>
+      <a href="../index.html#more-projects">More projects</a>
+      <a href="../index.html#skills">Skills</a>
+      <a href="../index.html#experience">Experience</a>
+      <a href="../index.html#contact">Contact</a>
+    </nav>
+  </div>
+</header>
+<main id="main">
+  <section class="project-hero">
+    <div class="container">
+      <div class="eyebrow">Master of Science in Computer Science • Implemented software architecture prototype</div>
+      <h1>Retail Microservices Architecture and Prototype</h1>
+      <p class="lead">retail software architecture project: architectural analysis plus a working microservices-style checkout prototype.</p>
+      <div class="hero-actions">
+        <a class="button secondary" href="../index.html#featured">← Back to portfolio</a>
+        <a class="button primary" href="../assets/resume/Jerry_Atchison_Resume.pdf">View résumé</a>
+      </div>
+    </div>
+  </section>
+  <section class="project-content-section">
+    <div class="container project-layout">
+      <article class="article">
+        <div class="code-artifact"><div class="artifact-label">Excerpt from the checkout orchestrator service</div><pre><code># Orchestrator Service
+# Main system that integrates cart, inventory, and payment
+
+from flask import Flask, jsonify, request
+import requests
+app = Flask(__name__)
+
+INVENTORY_URL = &quot;http://localhost:5001&quot;
+CART_URL = &quot;http://localhost:5002&quot;
+PAYMENT_URL = &quot;http://localhost:5003&quot;
+
+
+@app.route(&quot;/checkout&quot;, methods=[&quot;POST&quot;])
+def checkout():
+    data = request.get_json()
+    item = data.get(&quot;item&quot;)
+    quantity = data.get(&quot;quantity&quot;, 0)
+    method = data.get(&quot;method&quot;, &quot;credit_card&quot;)
+    amount = data.get(&quot;amount&quot;, 0)
+
+    inventory_response = requests.get(f&quot;{INVENTORY_URL}/inventory/{item}&quot;)
+    stock = inventory_response.json().get(&quot;stock&quot;, 0)
+
+    if stock &gt;= quantity:
+        requests.post(f&quot;{CART_URL}/cart/add&quot;, json={&quot;item&quot;: item, &quot;quantity&quot;: quantity})
+        requests.post(f&quot;{INVENTORY_URL}/inventory/{item}/reduce&quot;, json={&quot;quantity&quot;: quantity})
+        payment_response = requests.post(f&quot;{PAYMENT_URL}/payment&quot;, json={&quot;method&quot;: method, &quot;amount&quot;: amount})
+        return jsonify(payment_response.json())
+
+    return jsonify({&quot;message&quot;: f&quot;Not enough stock for {item}.&quot;}), 400
+
+
+if __name__ == &quot;__main__&quot;:
+    app.run(port=5000)</code></pre></div>
+        <h2>Project objective</h2><p>Improve scalability, maintainability, and independent change by separating retail business functions that were coupled inside one monolithic program.</p><h2>What I produced</h2><ul><li>Compared software architecture patterns across retail, event ticketing, and other business scenarios.</li><li>Selected microservices and cloud deployment for a retail environment with seasonal demand and changing vendors.</li><li>Split the original Python system into cart, inventory, payment, and orchestration services.</li><li>Used Flask HTTP endpoints and test cases to demonstrate service behavior and combined checkout flow.</li></ul><h2>Key decisions</h2><ul><li>Separate services by business capability rather than arbitrary technical layers.</li><li>Keep orchestration responsible for coordinating the checkout workflow.</li><li>Use APIs so services can evolve independently and be deployed separately.</li><li>Choose cloud hosting to support seasonal scaling rather than purchasing for peak demand.</li></ul><div class="kpi-grid"><div class="kpi"><strong>4 services</strong><span>Cart, inventory, payment, and orchestration</span></div><div class="kpi"><strong>3 scenarios</strong><span>Architecture patterns compared</span></div><div class="kpi"><strong>Working prototype</strong><span>HTTP-based checkout flow demonstrated</span></div></div><h2>Validation and analysis</h2><ul><li>Created functional test cases for service endpoints and checkout behavior.</li><li>Demonstrated the prototype and documented expected results.</li><li>Compared the prototype with the original monolithic implementation.</li></ul><h2>What I would improve next</h2><ul><li>Add persistent databases, authentication, API contracts, and centralized configuration.</li><li>Use containers and service discovery for repeatable deployment.</li><li>Add resilience patterns, tracing, and automated integration tests.</li></ul>
+      </article>
+      <aside class="sidebar"><div class="panel meta-list"><div class="meta-item"><strong>Degree</strong><span>Master of Science in Computer Science</span></div><div class="meta-item"><strong>Project type</strong><span>Implemented software architecture prototype</span></div><div class="meta-item"><strong>My role</strong><span>Architecture selection, service decomposition, Python/Flask development, testing, and documentation</span></div><div class="meta-item"><strong>Technologies and methods</strong><span>Python, Flask, REST APIs, microservices, orchestration, design patterns, test planning</span></div></div><div class="panel"><h3>Skills demonstrated</h3><div class="tags"><span class="tag">Python</span><span class="tag">Flask</span><span class="tag">Microservices</span><span class="tag">REST APIs</span><span class="tag">Testing</span></div></div></aside>
+    </div>
+  </section>
+</main>
+<footer>
+  <div class="container footer-row">
+    <span>© <span data-year></span> Jerry Atchison</span>
+    <span>Cloud, networking, security, and computer science portfolio</span>
+  </div>
+</footer>
+<script src="../script.js"></script>
+</body>
+</html>

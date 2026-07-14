@@ -1,0 +1,111 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width,initial-scale=1">
+  <meta name="description" content="Emergency Ambulance Dispatch Algorithm Comparison project by Jerry Atchison.">
+  <meta name="theme-color" content="#07111f">
+  <title>Emergency Ambulance Dispatch Algorithm Comparison | Jerry Atchison</title>
+  <link rel="icon" href="../assets/favicon.svg" type="image/svg+xml">
+  <link rel="stylesheet" href="../styles.css">
+</head>
+<body>
+<a class="skip-link" href="#main">Skip to content</a>
+<header class="site-header">
+  <div class="container nav">
+    <a class="brand" href="../index.html"><span class="brand-mark">JA</span><span>Jerry Atchison</span></a>
+    <button class="menu-button" aria-expanded="false" aria-controls="primary-nav">Menu</button>
+    <nav id="primary-nav" class="nav-links" aria-label="Primary navigation">
+      <a href="../index.html#featured">Featured</a>
+      <a href="../index.html#more-projects">More projects</a>
+      <a href="../index.html#skills">Skills</a>
+      <a href="../index.html#experience">Experience</a>
+      <a href="../index.html#contact">Contact</a>
+    </nav>
+  </div>
+</header>
+<main id="main">
+  <section class="project-hero">
+    <div class="container">
+      <div class="eyebrow">Master of Science in Computer Science • Implemented algorithms prototype</div>
+      <h1>Emergency Ambulance Dispatch Algorithm Comparison</h1>
+      <p class="lead">An emergency-dispatch simulation comparing shortest-path algorithms over the same location network and call data.</p>
+      <div class="hero-actions">
+        <a class="button secondary" href="../index.html#more-projects">← Back to portfolio</a>
+        <a class="button primary" href="../assets/resume/Jerry_Atchison_Resume.pdf">View résumé</a>
+      </div>
+    </div>
+  </section>
+  <section class="project-content-section">
+    <div class="container project-layout">
+      <article class="article">
+        <div class="code-artifact"><div class="artifact-label">Excerpt from the ambulance-routing implementation</div><pre><code>priority_rows = list(csv.DictReader(csvfile))
+
+    return location_rows, ambulance_rows, calls_rows, priority_rows
+
+def sort_calls(calls_rows, priority_rows):
+    # Sort by priority first, then by original order in calls.csv using original index, so it&#x27;s FIFO.
+    priority_map = {}
+    for row in priority_rows:
+        call_type = row[&quot;Call Type&quot;]
+        priority_value = int(row[&quot;Priority&quot;])
+        priority_map[call_type] = priority_value
+
+    indexed_calls = list(enumerate(calls_rows))
+    indexed_calls.sort(
+        key=lambda item: (int(priority_map[item[1][&quot;Call Type&quot;]]), item[0])
+    )
+
+    sorted_calls = []
+    for original_index, row in indexed_calls:
+        sorted_calls.append(row)
+    return sorted_calls
+
+
+
+def build_adjacency_list(location_rows):
+     # Build a adjacency list/graph from CSV rows using Travel Time + Traffic Delay as weight.
+    adjacency_list = {}
+    for row in location_rows:
+        start = row[&quot;Start&quot;]
+        end = row[&quot;End&quot;]
+        travel_time = float(row[&quot;Travel Time&quot;])
+        traffic_delay = float(row[&quot;Traffic Delay&quot;])
+        weight = travel_time + traffic_delay
+        
+        adjacency_list.setdefault(start, []).append((end, weight))
+    return adjacency_list
+
+# Build ambulances list from CSV rows.
+def build_ambulances(ambulance_rows):
+    ambulances = []
+    for row in ambulance_rows:
+        ambulance_number = row[&quot;Ambulance Number&quot;]
+        staging_location = row[&quot;Staging Location&quot;]
+        ambulances.append((ambulance_number, staging_location))
+    return ambulances
+
+def dijkstra(adjacency_list, ambulances, calls_sorted):
+    # Dispatch each call.
+    total_route_exec_time = 0.0
+    dispatch_records = []
+    for call in calls_sorted:
+        call_id = call[&quot;Call ID&quot;]
+        call_type = call[&quot;Call Type&quot;]
+        call_location = call[&quot;Location&quot;]
+        best_route_option = None</code></pre></div><div class="data-artifact"><div class="artifact-label">Sample rows from the dispatch log produced by the program</div><div class="table-scroll"><table><thead><tr><th>Call ID</th><th>Call Type</th><th>Selected Ambulance</th><th>Route to Call Location</th><th>Time to Call Location</th></tr></thead><tbody><tr><td>1</td><td>Stroke</td><td>Ambulance 3</td><td>Address 123 Main St -&gt; Intersection D</td><td>1.72</td></tr><tr><td>3</td><td>House Fire</td><td>Ambulance 3</td><td>Address 123 Main St -&gt; Intersection D -&gt; Address 789 Pine St</td><td>6.34</td></tr><tr><td>6</td><td>Childbirth</td><td>Ambulance 3</td><td>Address 123 Main St -&gt; Intersection D</td><td>1.72</td></tr><tr><td>7</td><td>Seizure</td><td>Ambulance 1</td><td>Intersection A</td><td>0.0</td></tr><tr><td>8</td><td>Heart Attack</td><td>Ambulance 2</td><td>Intersection C</td><td>0.0</td></tr><tr><td>12</td><td>Seizure</td><td>Ambulance 3</td><td>Address 123 Main St -&gt; Intersection D</td><td>1.72</td></tr></tbody></table></div></div>
+        <h2>Project objective</h2><p>Select an ambulance and route that can reach a prioritized emergency call efficiently while documenting algorithm behavior and runtime.</p><h2>What I produced</h2><ul><li>Loaded ambulances, calls, priorities, and network edges from CSV data.</li><li>Used call-priority information to process higher-priority emergencies first.</li><li>Implemented Dijkstra in one prototype and Bellman-Ford in another.</li><li>Calculated candidate routes, selected dispatch assignments, and wrote detailed logs.</li><li>Compared algorithm characteristics and measured execution time over repeated runs.</li></ul><h2>Key decisions</h2><ul><li>Use Dijkstra for efficient shortest paths when edge weights are nonnegative.</li><li>Use Bellman-Ford as a comparative implementation that can handle negative weights, though the dispatch graph does not require them.</li><li>Keep network data external in CSV files so test scenarios can change without rewriting code.</li><li>Write dispatch results to logs for traceability.</li></ul><div class="kpi-grid"><div class="kpi"><strong>2 algorithms</strong><span>Dijkstra and Bellman-Ford</span></div><div class="kpi"><strong>4 data sources</strong><span>Calls, priorities, ambulances, and network</span></div><div class="kpi"><strong>Repeatable logs</strong><span>Dispatch choices and routes recorded</span></div></div><h2>Validation and analysis</h2><ul><li>Ran both implementations against the same input data.</li><li>Compared route output and measured milliseconds across multiple runs.</li><li>Reviewed time and space complexity and algorithm suitability.</li></ul><h2>What I would improve next</h2><ul><li>Add unit tests, input validation, and deterministic tie-breaking.</li><li>Model changing traffic conditions and ambulance status in real time.</li><li>Visualize routes and use a priority queue throughout the dispatch workflow.</li></ul>
+      </article>
+      <aside class="sidebar"><div class="panel meta-list"><div class="meta-item"><strong>Degree</strong><span>Master of Science in Computer Science</span></div><div class="meta-item"><strong>Project type</strong><span>Implemented algorithms prototype</span></div><div class="meta-item"><strong>My role</strong><span>Algorithm selection, Python implementation, data handling, performance comparison, and documentation</span></div><div class="meta-item"><strong>Technologies and methods</strong><span>Python, Dijkstra, Bellman-Ford, graphs, heaps, CSV processing, logging, complexity analysis</span></div></div><div class="panel"><h3>Skills demonstrated</h3><div class="tags"><span class="tag">Python</span><span class="tag">Dijkstra</span><span class="tag">Bellman-Ford</span><span class="tag">Graphs</span><span class="tag">CSV</span></div></div></aside>
+    </div>
+  </section>
+</main>
+<footer>
+  <div class="container footer-row">
+    <span>© <span data-year></span> Jerry Atchison</span>
+    <span>Cloud, networking, security, and computer science portfolio</span>
+  </div>
+</footer>
+<script src="../script.js"></script>
+</body>
+</html>

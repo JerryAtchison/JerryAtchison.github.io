@@ -1,0 +1,98 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width,initial-scale=1">
+  <meta name="description" content="Fortran Weather Program and Python Conversion project by Jerry Atchison.">
+  <meta name="theme-color" content="#07111f">
+  <title>Fortran Weather Program and Python Conversion | Jerry Atchison</title>
+  <link rel="icon" href="../assets/favicon.svg" type="image/svg+xml">
+  <link rel="stylesheet" href="../styles.css">
+</head>
+<body>
+<a class="skip-link" href="#main">Skip to content</a>
+<header class="site-header">
+  <div class="container nav">
+    <a class="brand" href="../index.html"><span class="brand-mark">JA</span><span>Jerry Atchison</span></a>
+    <button class="menu-button" aria-expanded="false" aria-controls="primary-nav">Menu</button>
+    <nav id="primary-nav" class="nav-links" aria-label="Primary navigation">
+      <a href="../index.html#featured">Featured</a>
+      <a href="../index.html#more-projects">More projects</a>
+      <a href="../index.html#skills">Skills</a>
+      <a href="../index.html#experience">Experience</a>
+      <a href="../index.html#contact">Contact</a>
+    </nav>
+  </div>
+</header>
+<main id="main">
+  <section class="project-hero">
+    <div class="container">
+      <div class="eyebrow">Master of Science in Computer Science • Implemented cross-language project</div>
+      <h1>Fortran Weather Program and Python Conversion</h1>
+      <p class="lead">A two-phase programming project that compares compiled procedural/modular Fortran with an object-oriented Python version of the same weather calculations.</p>
+      <div class="hero-actions">
+        <a class="button secondary" href="../index.html#more-projects">← Back to portfolio</a>
+        <a class="button primary" href="../assets/resume/Jerry_Atchison_Resume.pdf">View résumé</a>
+      </div>
+    </div>
+  </section>
+  <section class="project-content-section">
+    <div class="container project-layout">
+      <article class="article">
+        <div class="code-artifact"><div class="artifact-label">Excerpt from the object-oriented Python conversion</div><pre><code># Weather module for the Weather program
+# Created September 2024
+# Converted to Python OOP
+
+class Weather:
+    def __init__(self, fh_array, fl_array, array_lengths, ws, wc):
+        self._f_high_array = fh_array
+        self._f_low_array = fl_array
+        self._ws_mph = ws
+        self._number_temperatures = array_lengths
+        self._w_code = wc
+        self._description = &quot;&quot;
+
+    def calculate_average_fahrenheit_high_temp(self):
+        hi_sum = sum(self._f_high_array)
+        return hi_sum / self._number_temperatures
+
+    def calculate_average_fahrenheit_low_temp(self):
+        low_sum = sum(self._f_low_array)
+        return low_sum / self._number_temperatures
+
+    def find_weekly_fahrenheit_high_temp(self):
+        highest_temp = self._f_high_array[0]
+        for temp in self._f_high_array[1:]:
+            if temp &gt; highest_temp:
+                highest_temp = temp
+        return highest_temp
+
+    def find_weekly_fahrenheit_low_temp(self):
+        lowest_temp = self._f_low_array[0]
+        for temp in self._f_low_array[1:]:
+            if temp &lt; lowest_temp:
+                lowest_temp = temp
+        return lowest_temp
+
+    def determine_description(self):
+        if self._w_code == &#x27;S&#x27;:
+            self._description = &quot;SUNNY&quot;
+        elif self._w_code == &#x27;P&#x27;:
+            self._description = &quot;PARTLY CLOUDY&quot;
+        elif self._w_code == &#x27;C&#x27;:
+            self._description = &quot;CLOUDY&quot;</code></pre></div>
+        <h2>Project objective</h2><p>Demonstrate formal language concepts, modular design, data handling, program translation, and behavioral equivalence across two programming languages.</p><h2>What I produced</h2><ul><li>Implemented weather calculations in Fortran using a main program and supporting module.</li><li>Compiled and executed the Fortran application.</li><li>Converted the application to Python with classes, methods, and equivalent calculations.</li><li>Compared language structure, types, compilation versus interpretation, modularity, and runtime behavior.</li><li>Validated outputs through multiple manual test cases.</li></ul><h2>Key decisions</h2><ul><li>Keep calculation logic separated from input/output concerns.</li><li>Use Python classes to represent weather data and operations.</li><li>Preserve formulas and test values so equivalence can be evaluated directly.</li><li>Document differences in language syntax and execution model rather than performing a line-for-line translation.</li></ul><div class="kpi-grid"><div class="kpi"><strong>2 languages</strong><span>Fortran and Python</span></div><div class="kpi"><strong>4 test cases</strong><span>Behavior checked across implementations</span></div><div class="kpi"><strong>2 phases</strong><span>Original program and structured conversion</span></div></div><h2>Validation and analysis</h2><ul><li>Compiled and ran the Fortran program successfully.</li><li>Ran the Python conversion with the same test inputs.</li><li>Compared expected and actual calculations across four manual cases.</li></ul><h2>What I would improve next</h2><ul><li>Add automated tests shared across both implementations.</li><li>Create command-line argument handling and input validation.</li><li>Benchmark performance and numerical behavior over a larger dataset.</li></ul>
+      </article>
+      <aside class="sidebar"><div class="panel meta-list"><div class="meta-item"><strong>Degree</strong><span>Master of Science in Computer Science</span></div><div class="meta-item"><strong>Project type</strong><span>Implemented cross-language software project</span></div><div class="meta-item"><strong>My role</strong><span>Fortran development, Python conversion, language comparison, compilation, and testing</span></div><div class="meta-item"><strong>Technologies and methods</strong><span>Fortran, Python, modules, object-oriented programming, compilation, testing</span></div></div><div class="panel"><h3>Skills demonstrated</h3><div class="tags"><span class="tag">Fortran</span><span class="tag">Python</span><span class="tag">OOP</span><span class="tag">Testing</span><span class="tag">Language translation</span></div></div></aside>
+    </div>
+  </section>
+</main>
+<footer>
+  <div class="container footer-row">
+    <span>© <span data-year></span> Jerry Atchison</span>
+    <span>Cloud, networking, security, and computer science portfolio</span>
+  </div>
+</footer>
+<script src="../script.js"></script>
+</body>
+</html>

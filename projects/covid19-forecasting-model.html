@@ -1,0 +1,103 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width,initial-scale=1">
+  <meta name="description" content="COVID-19 Case Forecasting Model project by Jerry Atchison.">
+  <meta name="theme-color" content="#07111f">
+  <title>COVID-19 Case Forecasting Model | Jerry Atchison</title>
+  <link rel="icon" href="../assets/favicon.svg" type="image/svg+xml">
+  <link rel="stylesheet" href="../styles.css">
+</head>
+<body>
+<a class="skip-link" href="#main">Skip to content</a>
+<header class="site-header">
+  <div class="container nav">
+    <a class="brand" href="../index.html"><span class="brand-mark">JA</span><span>Jerry Atchison</span></a>
+    <button class="menu-button" aria-expanded="false" aria-controls="primary-nav">Menu</button>
+    <nav id="primary-nav" class="nav-links" aria-label="Primary navigation">
+      <a href="../index.html#featured">Featured</a>
+      <a href="../index.html#more-projects">More projects</a>
+      <a href="../index.html#skills">Skills</a>
+      <a href="../index.html#experience">Experience</a>
+      <a href="../index.html#contact">Contact</a>
+    </nav>
+  </div>
+</header>
+<main id="main">
+  <section class="project-hero">
+    <div class="container">
+      <div class="eyebrow">Master of Science in Computer Science • Implemented machine-learning proof of concept</div>
+      <h1>COVID-19 Case Forecasting Model</h1>
+      <p class="lead">A machine-learning pipeline for forecasting future COVID-19 case counts from county-level health data.</p>
+      <div class="hero-actions">
+        <a class="button secondary" href="../index.html#more-projects">← Back to portfolio</a>
+        <a class="button primary" href="../assets/resume/Jerry_Atchison_Resume.pdf">View résumé</a>
+      </div>
+    </div>
+  </section>
+  <section class="project-content-section">
+    <div class="container project-layout">
+      <article class="article">
+        <div class="code-artifact"><div class="artifact-label">Excerpt from the model training and evaluation pipeline</div><pre><code>from pathlib import Path
+import numpy as np
+import pandas as pd
+from joblib import load
+from sklearn.ensemble import RandomForestRegressor
+from sklearn.model_selection import train_test_split
+from sklearn.metrics import mean_absolute_error, mean_squared_error
+
+BASE_DIR = Path(__file__).resolve().parent
+
+TARGET_COLUMN = &quot;Case_Count&quot;
+SCALED_COLUMNS = [&quot;Case_Count&quot;, &quot;Monitoring_Week&quot;, &quot;Monitoring_Month&quot;, &quot;Monitoring_Year&quot;]
+FUTURE_WEEKS = 12
+
+# Read the cleaned/scaled data and scaler file.
+data = pd.read_excel(BASE_DIR / &quot;Covid19_Cleaned_After_Scaling.xlsx&quot;)
+scaler = load(BASE_DIR / &quot;Covid19_scaler.joblib&quot;)
+
+# X = inputs, y = what we want to predict.
+feature_columns = [column for column in data.columns if column != TARGET_COLUMN]
+X = data[feature_columns]
+y = data[TARGET_COLUMN]
+
+# Split data into training and testing sets.
+X_train, X_test, y_train, y_test = train_test_split(X, y, test_size=0.2, random_state=42)
+
+# Train model.
+model = RandomForestRegressor(random_state=42)
+model.fit(X_train, y_train)
+
+# Evaluate model performance on test data.
+r2 = model.score(X_test, y_test)
+y_pred = model.predict(X_test)
+mae = mean_absolute_error(y_test, y_pred)
+mse = mean_squared_error(y_test, y_pred)
+rmse = np.sqrt(mse)
+
+# Convert metrics from scaled values to case counts.
+case_count_index = SCALED_COLUMNS.index(TARGET_COLUMN)
+mae_cases = mae * scaler.scale_[case_count_index]
+mse_cases = mse * (scaler.scale_[case_count_index] ** 2)
+rmse_cases = rmse * scaler.scale_[case_count_index]
+
+print(f&quot;R^2: {r2:.4f}&quot;)
+print(f&quot;MAE (Case Count): {mae_cases:.2f}&quot;)
+print(f&quot;MSE (Case Count): {mse_cases:.2f}&quot;)
+print(f&quot;RMSE (Case Count): {rmse_cases:.2f}&quot;)</code></pre></div><div class="data-artifact"><div class="artifact-label">Sample rows from the twelve-week prediction workbook</div><div class="table-scroll"><table><thead><tr><th>DATE</th><th>Facility_Type</th><th>Baltimore</th><th>Montgomery</th><th>Washington</th></tr></thead><tbody><tr><td>2021-11-21 00:00:00</td><td>Inmates: State and Local Affected Facilities</td><td>196</td><td>0</td><td>478</td></tr><tr><td>2021-11-21 00:00:00</td><td>Patients: State and Local Affected Facilities</td><td>260</td><td>0</td><td>2</td></tr><tr><td>2021-11-21 00:00:00</td><td>Residents: Nursing, Assisted Living, Group Homes Affected Facilities</td><td>1347</td><td>215</td><td>239</td></tr><tr><td>2021-11-21 00:00:00</td><td>Staff: Nursing, Assisted Living, Group Homes Affected Facilities</td><td>1074</td><td>339</td><td>211</td></tr></tbody></table></div></div>
+        <h2>Project objective</h2><p>Create a reproducible proof of concept that transforms raw spreadsheet data into model-ready features and produces evaluated future predictions.</p><h2>What I produced</h2><ul><li>Built a cleaning script for missing values, feature selection, and dataset preparation.</li><li>Created before-scaling and after-scaling workbooks for transparency.</li><li>Trained a Random Forest regression model with scikit-learn.</li><li>Saved the scaler for consistent future transformations.</li><li>Generated a twelve-week prediction workbook and analyzed ethical and design concerns.</li></ul><h2>Key decisions</h2><ul><li>Use Random Forest because it handles nonlinear relationships and interactions without requiring a linear model assumption.</li><li>Separate data cleaning from model training for repeatability.</li><li>Preserve intermediate datasets so transformations can be reviewed.</li><li>Discuss bias, privacy, interpretability, and misuse rather than treating prediction accuracy as the only concern.</li></ul><div class="kpi-grid"><div class="kpi"><strong>12 weeks</strong><span>Future predictions generated</span></div><div class="kpi"><strong>Separate pipeline stages</strong><span>Cleaning, scaling, modeling, and export</span></div><div class="kpi"><strong>Ethics review</strong><span>Bias, privacy, and model-design concerns</span></div></div><h2>Validation and analysis</h2><ul><li>Used a holdout dataset and regression performance measures.</li><li>Reviewed model stability and parameter choices.</li><li>Saved forecasts and supporting datasets as separate artifacts.</li></ul><h2>What I would improve next</h2><ul><li>Use time-aware validation rather than only a conventional holdout split.</li><li>Add confidence intervals and compare against simpler baselines.</li><li>Document feature importance and test performance across different counties and time periods.</li></ul>
+      </article>
+      <aside class="sidebar"><div class="panel meta-list"><div class="meta-item"><strong>Degree</strong><span>Master of Science in Computer Science</span></div><div class="meta-item"><strong>Project type</strong><span>Implemented machine-learning proof of concept</span></div><div class="meta-item"><strong>My role</strong><span>Data cleaning, feature preparation, model training, evaluation, forecasting, and ethics analysis</span></div><div class="meta-item"><strong>Technologies and methods</strong><span>Python, pandas, scikit-learn, Random Forest regression, feature scaling, joblib, Excel</span></div></div><div class="panel"><h3>Skills demonstrated</h3><div class="tags"><span class="tag">Python</span><span class="tag">pandas</span><span class="tag">scikit-learn</span><span class="tag">Random Forest</span><span class="tag">Excel</span></div></div></aside>
+    </div>
+  </section>
+</main>
+<footer>
+  <div class="container footer-row">
+    <span>© <span data-year></span> Jerry Atchison</span>
+    <span>Cloud, networking, security, and computer science portfolio</span>
+  </div>
+</footer>
+<script src="../script.js"></script>
+</body>
+</html>
