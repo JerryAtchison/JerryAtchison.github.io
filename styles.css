@@ -53,6 +53,9 @@ section{padding:4.8rem 0}
 .project-card.compact{border-radius:15px}
 .project-preview{height:255px;background:#f5f8fc;border-bottom:1px solid var(--line);overflow:hidden;display:flex;align-items:center;justify-content:center}
 .compact .project-preview{height:175px}
+a.project-preview-link{text-decoration:none;color:inherit;cursor:pointer;transition:opacity .18s ease,filter .18s ease}
+a.project-preview-link:hover,a.project-preview-link:focus-visible{opacity:.92;filter:brightness(1.06)}
+a.project-preview-link:focus-visible{outline:2px solid var(--accent);outline-offset:-2px}
 .image-preview img{width:100%;height:100%;object-fit:contain;padding:.7rem}
 .code-preview{display:block;background:#091523;color:#b9d3e8;padding:0}
 .preview-topline{display:flex;gap:.35rem;padding:.75rem .9rem;border-bottom:1px solid rgba(255,255,255,.08)}
