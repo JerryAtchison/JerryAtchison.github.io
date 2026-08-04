@@ -274,6 +274,7 @@ footer{padding:2.5rem 0 3.5rem;color:var(--muted);border-top:1px solid rgba(255,
   object-position:top left
 }
 .field-proof-wide img{height:280px}
+.field-proof-wide .field-proof-detail{object-position:center 18%;object-fit:cover}
 .field-proof figcaption{
   padding:.65rem .75rem;
   color:var(--muted);
