@@ -21,7 +21,7 @@ img{max-width:100%}
 .nav-links a:hover,.nav-links a:focus{color:var(--text)}
 .menu-button{display:none;background:transparent;border:1px solid var(--line);color:var(--text);padding:.55rem .72rem;border-radius:10px}
 
-.hero{padding:5.5rem 0 1.5rem}
+.hero{padding:2rem 0 1.5rem}
 .hero-grid{display:grid;grid-template-columns:1.35fr .75fr;gap:2.5rem;align-items:center}
 .hero-intro{max-width:58rem}
 .eyebrow{color:var(--accent);text-transform:uppercase;letter-spacing:.13em;font-weight:850;font-size:.78rem}
@@ -182,7 +182,7 @@ footer{padding:2.5rem 0 3.5rem;color:var(--muted);border-top:1px solid rgba(255,
   .menu-button{display:inline-flex}
   .nav-links{display:none;position:absolute;left:1rem;right:1rem;top:72px;background:var(--surface);border:1px solid var(--line);border-radius:14px;padding:1rem;flex-direction:column;align-items:stretch}
   .nav-links.open{display:flex}
-  .hero{padding-top:4.4rem}
+  .hero{padding-top:2rem}
   .stat-grid,.kpi-grid,.more-project-grid{grid-template-columns:1fr}
   .section-head{align-items:start;flex-direction:column}
   .project-preview{height:210px}
