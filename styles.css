@@ -126,8 +126,8 @@ footer{padding:2.5rem 0 3.5rem;color:var(--muted);border-top:1px solid rgba(255,
 .footer-row{display:flex;justify-content:space-between;gap:1rem;flex-wrap:wrap}
 
 .project-hero{padding:5.3rem 0 2.4rem}
+.project-hero.degree-hero{padding:5.3rem 0 1.2rem}
 .project-hero h1{font-size:clamp(2.25rem,6vw,4.7rem);max-width:19ch}
-.project-hero h1.degree-title{font-size:clamp(1.55rem,3.6vw,2.45rem);max-width:28ch;line-height:1.15;letter-spacing:-.03em}
 .project-hero .lead{max-width:78ch;color:var(--muted);font-size:1.15rem}
 .project-content-section{padding-top:1rem}
 .project-layout{display:grid;grid-template-columns:minmax(0,1fr) 310px;gap:2rem;align-items:start}
