@@ -4,4 +4,4 @@ This site highlights projects I completed while earning my Bachelor of Science i
 
 The projects cover cloud infrastructure, networking, cybersecurity, software architecture, algorithms, machine learning, mobile design, and emerging systems. I included selected diagrams, screenshots, wireframes, code excerpts, and sample outputs from my work.
 
-The portfolio also includes a two-visit Bellevue wireless-site pre-integration project with original Ericsson screenshots, alarm testing, optical-level checks, PM counters, RETs, radio inventory, VSWR troubleshooting, corrective coordination, and final site completion.
+The Field Work section includes three evidence-backed wireless case studies: Bellevue pre-integration recovery, Brook Hollow three-sector 4xTx modernization, and Gaston Gamma 850 PIM fault isolation. Each case uses curated original field photography and test evidence while stating unresolved handoff work plainly.

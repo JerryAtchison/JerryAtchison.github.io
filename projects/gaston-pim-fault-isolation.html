@@ -1,0 +1,132 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8"/>
+<meta content="width=device-width,initial-scale=1" name="viewport"/>
+<meta content="Gaston Gamma 850 PIM troubleshooting, feeder correction, antenna fault isolation, and RMA evidence field case study by Jerry Atchison." name="description"/>
+<meta content="#07111f" name="theme-color"/>
+<meta content="Gaston Gamma 850 PIM Fault Isolation | Jerry Atchison" property="og:title"/>
+<meta content="Controlled load and antenna tests isolated a two-port antenna failure and produced an RMA-ready evidence package." property="og:description"/>
+<meta content="https://jerryatchison.dev/assets/field-experience/gaston/photos/01-tower-overview.jpg" property="og:image"/>
+<meta content="website" property="og:type"/>
+<title>Gaston Gamma 850 PIM Fault Isolation | Jerry Atchison</title>
+<link href="../assets/favicon.svg" rel="icon" type="image/svg+xml"/>
+<link href="../styles.css" rel="stylesheet"/>
+</head>
+<body>
+<a class="skip-link" href="#main">Skip to content</a>
+<header class="site-header">
+<div class="container nav">
+<a class="brand" href="../index.html"><span class="brand-mark">JA</span><span>Jerry Atchison</span></a>
+<button aria-controls="primary-nav" aria-expanded="false" class="menu-button">Menu</button>
+<nav aria-label="Primary navigation" class="nav-links" id="primary-nav">
+<a href="../index.html#experience">Experience</a>
+<a href="../index.html#field-work">Field Work</a>
+<a href="../index.html#college-projects">College projects</a>
+<a href="../index.html#skills">Skills</a>
+<a href="../index.html#certifications">Certifications</a>
+<a href="mailto:Jerry.atchison@hotmail.com">Email</a>
+<a href="https://www.linkedin.com/in/jerry-atchison" rel="noopener" target="_blank">LinkedIn</a>
+</nav>
+</div>
+</header>
+<main id="main">
+<section class="project-hero">
+<div class="container">
+<div class="eyebrow">Professional field project • July 31-August 6, 2018</div>
+<h1>Gaston Gamma 850 PIM Fault Isolation</h1>
+<p class="lead">A three-visit troubleshooting sequence that corrected crossed B-band transmit lines, used controlled PIM tests to move and isolate the symptom, confirmed both G1 antenna ports failed on the ground, and assembled the evidence needed for replacement.</p>
+<div class="case-status pending">Root cause isolated; replacement antenna pending</div>
+<div class="hero-actions"><a class="button secondary" href="../index.html#field-work">← Back to Field Work</a></div>
+</div>
+</section>
+<section class="project-content-section">
+<div class="container project-layout">
+<article class="article">
+<figure class="case-hero-figure">
+<a href="../assets/field-experience/gaston/photos/01-tower-overview.jpg" rel="noopener" target="_blank"><img alt="Dense Gaston tower head where the Gamma 850 antenna fault was investigated" src="../assets/field-experience/gaston/photos/01-tower-overview.jpg"/></a>
+<figcaption>Gaston tower head during the August 6 maintenance visit, when the G1 antenna was removed for ground testing.</figcaption>
+</figure>
+<div class="role-note"><strong>My role:</strong> I verified feeder routing, corrected crossed transmit lines and color coding, performed ground- and top-side PIM troubleshooting, used jumper swaps and a known-good load as controls, documented the antenna model and serial, and supplied the test results and photos needed for the Amphenol RMA.</div>
+<div class="case-metrics" aria-label="Gaston project metrics">
+<div class="case-metric"><strong>3 visits</strong><span>Quality-ticket and maintenance work from July 31 through August 6</span></div>
+<div class="case-metric"><strong>40.0 dB</strong><span>Separation between the passing load control and failing BG antenna result</span></div>
+<div class="case-metric"><strong>24/24 PASS</strong><span>Supporting FiberChek inspections across radio and RBS endpoints</span></div>
+<div class="case-metric"><strong>RMA-ready</strong><span>Failure reports, model and serial, and field photos assembled</span></div>
+</div>
+
+<h2>Start by correcting the signal path</h2>
+<p>The July 31 quality ticket revealed that most B-band transmit lines had been crossed between the duplexers and quadplexers, routing them toward the wrong sectors or hardlines. I traced the 850 LTE transmit and receive paths through the 2212 radios, duplexers, quadplexers, diplexers, and hardlines, then corrected the line routing and color code.</p>
+<div class="case-figure-grid">
+<figure class="case-figure"><a href="../assets/field-experience/gaston/photos/02-crossed-transmit-lines.jpg" rel="noopener" target="_blank"><img alt="Crossed Gaston B-band transmit lines at the quadplexer bank" loading="lazy" src="../assets/field-experience/gaston/photos/02-crossed-transmit-lines.jpg"/></a><figcaption>The crossed B-band transmit lines before routing and color-code correction.</figcaption></figure>
+<figure class="case-figure"><a href="../assets/field-experience/gaston/photos/03-spectrum-analyzer.jpg" rel="noopener" target="_blank"><img alt="Anritsu Site Master return-loss trace used during Gaston troubleshooting" loading="lazy" src="../assets/field-experience/gaston/photos/03-spectrum-analyzer.jpg"/></a><figcaption>Anritsu return-loss trace captured during feeder-path troubleshooting.</figcaption></figure>
+</div>
+
+<h2>The isolation sequence</h2>
+<ol class="case-timeline">
+<li><strong>Ground hardline load moved the fault upward.</strong> Loading the Gamma 850 branch at the ground hardline showed the PIM source remained above the ground equipment.</li>
+<li><strong>A jumper swap made the symptom move.</strong> Swapping the BG and BGG coax jumpers at the antenna moved the PIM problem from branch 3 to branch 4, pointing to the G1 antenna rather than the feeder path.</li>
+<li><strong>A known-good load passed at the antenna.</strong> The BG load control at the antenna measured -159.8 dBc against a -143.0 dBc threshold.</li>
+<li><strong>The removed antenna failed on both ports.</strong> On the ground, BG measured -119.8 dBc and BGG measured -138.0 dBc. Both failed the same -143.0 dBc threshold.</li>
+</ol>
+<div class="case-figure-grid">
+<figure class="case-figure"><a href="../assets/field-experience/gaston/photos/06-topside-load-test.jpg" rel="noopener" target="_blank"><img alt="Known-good PIM load connected at the Gaston antenna position" loading="lazy" src="../assets/field-experience/gaston/photos/06-topside-load-test.jpg"/></a><figcaption>Known-good load used at the antenna position to separate the antenna from the feeder path.</figcaption></figure>
+<figure class="case-figure"><a href="../assets/field-experience/gaston/photos/04-antenna-ground-test.jpg" rel="noopener" target="_blank"><img alt="Gaston G1 antenna connected to a PIM tester on the ground" loading="lazy" src="../assets/field-experience/gaston/photos/04-antenna-ground-test.jpg"/></a><figcaption>The removed G1 antenna connected to the PIM analyzer for ground-level confirmation.</figcaption></figure>
+</div>
+
+<h2>Control and fault results tell the story</h2>
+<div class="data-artifact case-data-table"><div class="artifact-label">Gamma 850 PIM comparison · threshold -143.0 dBc</div><div class="table-scroll"><table><thead><tr><th>Test point</th><th>PIM</th><th>Peak PIM</th><th>Result</th></tr></thead><tbody>
+<tr><td>BG load at antenna</td><td>-159.8 dBc</td><td>-159.7 dBc</td><td class="pass">PASS</td></tr>
+<tr><td>BG antenna on ground</td><td>-119.8 dBc</td><td>-119.8 dBc</td><td class="fail">FAIL</td></tr>
+<tr><td>BGG antenna on ground</td><td>-138.0 dBc</td><td>-137.5 dBc</td><td class="fail">FAIL</td></tr>
+</tbody></table></div></div>
+<div class="case-figure-grid">
+<figure class="case-figure contain"><a href="../assets/field-experience/gaston/evidence/pim-load-pass.jpg" rel="noopener" target="_blank"><img alt="Passing Gaston BG PIM load-at-antenna report at negative 159.8 dBc" loading="lazy" src="../assets/field-experience/gaston/evidence/pim-load-pass.jpg"/></a><figcaption><strong>Control:</strong> the load passed at -159.8 dBc.</figcaption></figure>
+<figure class="case-figure contain"><a href="../assets/field-experience/gaston/evidence/pim-bg-antenna-fail.jpg" rel="noopener" target="_blank"><img alt="Failing Gaston BG antenna-on-ground PIM report at negative 119.8 dBc" loading="lazy" src="../assets/field-experience/gaston/evidence/pim-bg-antenna-fail.jpg"/></a><figcaption><strong>Fault:</strong> the same BG path failed on the removed antenna at -119.8 dBc—a 40.0 dB separation from the control.</figcaption></figure>
+<figure class="case-figure contain full"><a href="../assets/field-experience/gaston/evidence/pim-bgg-antenna-fail.jpg" rel="noopener" target="_blank"><img alt="Failing Gaston BGG antenna-on-ground PIM report at negative 138 dBc" loading="lazy" src="../assets/field-experience/gaston/evidence/pim-bgg-antenna-fail.jpg"/></a><figcaption>The second G1 antenna port also failed, at -138.0 dBc.</figcaption></figure>
+</div>
+
+<h2>Supporting fiber baseline</h2>
+<p>Earlier team validation supplied a clean fiber baseline: all 24 FiberChek inspections passed across six color pairs and their radio and RBS endpoints, and all six OTDR paths passed at both 1310 nm and 1550 nm. These tests were completed by a teammate and are included here as supporting site evidence, not as work I personally performed.</p>
+<div class="data-artifact case-data-table"><div class="artifact-label">Supporting dual-wavelength OTDR results</div><div class="table-scroll"><table><thead><tr><th>Path</th><th>1310 nm loss</th><th>1550 nm loss</th><th>Result</th></tr></thead><tbody>
+<tr><td>BG</td><td>0.462 dB</td><td>0.403 dB</td><td class="pass">PASS</td></tr>
+<tr><td>BY</td><td>0.398 dB</td><td>0.376 dB</td><td class="pass">PASS</td></tr>
+<tr><td>RG</td><td>0.431 dB</td><td>0.323 dB</td><td class="pass">PASS</td></tr>
+<tr><td>RY</td><td>0.412 dB</td><td>0.273 dB</td><td class="pass">PASS</td></tr>
+<tr><td>WG</td><td>0.359 dB</td><td>0.247 dB</td><td class="pass">PASS</td></tr>
+<tr><td>WY</td><td>0.464 dB</td><td>0.342 dB</td><td class="pass">PASS</td></tr>
+</tbody></table></div></div>
+<div class="case-figure-grid">
+<figure class="case-figure contain full"><a href="../assets/field-experience/gaston/evidence/fiber-scope-pass-matrix.jpg" rel="noopener" target="_blank"><img alt="Matrix of 24 passing Gaston FiberChek inspection images" loading="lazy" src="../assets/field-experience/gaston/evidence/fiber-scope-pass-matrix.jpg"/></a><figcaption>All 24 supporting FiberChek inspection results, organized by color pair and Radio or RBS endpoint.</figcaption></figure>
+<figure class="case-figure contain full"><a href="../assets/field-experience/gaston/evidence/otdr-bg-summary.jpg" rel="noopener" target="_blank"><img alt="Passing Gaston BG dual-wavelength OTDR summary" loading="lazy" src="../assets/field-experience/gaston/evidence/otdr-bg-summary.jpg"/></a><figcaption>Representative BG OTDR summary: 0.462 dB at 1310 nm and 0.403 dB at 1550 nm, both passing.</figcaption></figure>
+</div>
+
+<h2>RMA handoff, with the remaining work stated plainly</h2>
+<p>The antenna model and serial were documented alongside the PIM reports, crossed-line photos, and isolation sequence. That package gave the cell technician and Amphenol the proof needed to request a replacement antenna.</p>
+<figure class="case-figure full"><a href="../assets/field-experience/gaston/photos/05-antenna-model-serial.jpg" rel="noopener" target="_blank"><img alt="Amphenol model and serial label on the failed Gaston G1 antenna" loading="lazy" src="../assets/field-experience/gaston/photos/05-antenna-model-serial.jpg"/></a><figcaption>Model and serial documentation supplied with the PIM reports for the replacement request.</figcaption></figure>
+<div class="scope-note"><strong>Scope boundary:</strong> The August 6 update recorded the maintenance ticket at 50% while the replacement G1 antenna was still being supplied. The investigation and RMA evidence were complete; the final antenna replacement was not.</div>
+
+<nav aria-label="Field case studies" class="case-nav"><h2>More field cases</h2><div class="case-nav-grid">
+<a class="case-nav-card" href="wireless-site-preintegration-validation.html"><span>Pre-integration recovery</span><strong>Bellevue</strong></a>
+<a class="case-nav-card" href="brook-hollow-radio-modernization.html"><span>Three-sector modernization</span><strong>Brook Hollow</strong></a>
+<a class="case-nav-card" href="gaston-pim-fault-isolation.html" aria-current="page"><span>PIM fault isolation</span><strong>Gaston</strong></a>
+</div></nav>
+</article>
+<aside class="sidebar">
+<div class="panel"><div class="meta-list">
+<div class="meta-item"><strong>Site</strong><span>Gaston</span></div>
+<div class="meta-item"><strong>Carrier</strong><span>Verizon</span></div>
+<div class="meta-item"><strong>Ticket</strong><span>Carolinas 4xTx quality and antenna maintenance</span></div>
+<div class="meta-item"><strong>Focus</strong><span>Gamma 850 branches BG and BGG</span></div>
+<div class="meta-item"><strong>Methods</strong><span>PIM, return loss, load control, jumper swap, ground test</span></div>
+<div class="meta-item"><strong>Dates</strong><span>July 31, August 1, and August 6, 2018</span></div>
+</div></div>
+<div class="panel"><div class="tags"><span class="tag">PIM Testing</span><span class="tag">RF Troubleshooting</span><span class="tag">Fault Isolation</span><span class="tag">Spectrum Analysis</span><span class="tag">Feeder Mapping</span><span class="tag">Antenna RMA</span><span class="tag">Gamma 850</span><span class="tag">Fiber Baseline</span></div></div>
+</aside>
+</div>
+</section>
+</main>
+<footer><div class="container footer-row"><span>© <span data-year=""></span> Jerry Atchison</span><span>Cloud, networking, security, and wireless field operations</span></div></footer>
+<script src="../script.js"></script>
+</body>
+</html>
