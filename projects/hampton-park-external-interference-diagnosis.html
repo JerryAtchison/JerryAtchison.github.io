@@ -1,0 +1,117 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8"/>
+<meta content="width=device-width,initial-scale=1" name="viewport"/>
+<meta content="Hampton Park external RF interference diagnosis and PIM analysis case study by Jerry Atchison, including local corrections and a controlled Gamma 850 antenna-orientation test." name="description"/>
+<meta content="#07111f" name="theme-color"/>
+<meta content="Hampton Park External RF Interference Diagnosis | Jerry Atchison" property="og:title"/>
+<meta content="A controlled Gamma 850 antenna-orientation check produced a 5-6 dB branch improvement and separated external interference from local hardware faults." property="og:description"/>
+<meta content="https://jerryatchison.dev/assets/field-experience/hampton-park/photos/01-tower-overview.jpg" property="og:image"/>
+<meta content="website" property="og:type"/>
+<title>Hampton Park External RF Interference Diagnosis | Jerry Atchison</title>
+<link href="../assets/favicon.svg" rel="icon" type="image/svg+xml"/>
+<link href="../styles.css" rel="stylesheet"/>
+</head>
+<body>
+<a class="skip-link" href="#main">Skip to content</a>
+<header class="site-header">
+<div class="container nav">
+<a class="brand" href="../index.html"><span class="brand-mark">JA</span><span>Jerry Atchison</span></a>
+<button aria-controls="primary-nav" aria-expanded="false" class="menu-button">Menu</button>
+<nav aria-label="Primary navigation" class="nav-links" id="primary-nav">
+<a href="../index.html#experience">Experience</a>
+<a href="../field-work.html">Field Work</a>
+<a href="../index.html#college-projects">College projects</a>
+<a href="../index.html#skills">Skills</a>
+<a href="../index.html#certifications">Certifications</a>
+<a href="mailto:Jerry.atchison@hotmail.com">Email</a>
+<a href="https://www.linkedin.com/in/jerry-atchison" rel="noopener" target="_blank">LinkedIn</a>
+</nav>
+</div>
+</header>
+<main id="main">
+<section class="project-hero">
+<div class="container">
+<div class="eyebrow">Professional field project • July 24-25, 2018</div>
+<h1>Hampton Park External RF Interference Diagnosis</h1>
+<p class="lead">I first cleared local alarm, routing, and jumper problems. When the remaining PIM behavior continued to vary across sectors and technologies, I used a controlled Gamma 850 antenna-orientation check to show that the strongest symptom changed with the surrounding RF environment—not with a fixed antenna or feeder failure.</p>
+<div class="case-status pending">Local faults corrected; external source escalated for location</div>
+<div class="hero-actions"><a class="button secondary" href="../field-work.html">← Back to Field Work</a></div>
+</div>
+</section>
+<section class="project-content-section">
+<div class="container project-layout">
+<article class="article">
+<figure class="case-hero-figure hampton-hero">
+<a href="../assets/field-experience/hampton-park/photos/01-tower-overview.jpg" rel="noopener" target="_blank"><img alt="Hampton Park tower sectors investigated during the external interference diagnosis" src="../assets/field-experience/hampton-park/photos/01-tower-overview.jpg"/></a>
+<figcaption>Hampton Park tower sectors during the second troubleshooting visit, before the controlled Gamma 850 orientation check.</figcaption>
+</figure>
+<div class="role-note"><strong>My role:</strong> I was the named ground technician for both visits. I traced and corrected the ground-side RF paths, reviewed the VSWR and PIM behavior, corrected the loose Beta PCS radio jumper, directed and documented the controlled tower-side antenna manipulation, compared the before/after branch readings, and prepared the escalation recommendation. The tower crew performed the climbs and physical antenna movement.</div>
+<div class="case-metrics" aria-label="Hampton Park project metrics">
+<div class="case-metric"><strong>2 visits</strong><span>Correction and controlled diagnosis over consecutive days</span></div>
+<div class="case-metric"><strong>3 local issues</strong><span>Alarm clip, crossed paths, and loose radio jumper corrected</span></div>
+<div class="case-metric"><strong>5-6 dB</strong><span>Gamma 850 branches 3 and 4 improvement during the orientation check</span></div>
+<div class="case-metric"><strong>≈15 min</strong><span>Documented window between the compared readings</span></div>
+</div>
+
+<h2>Clear the local faults first</h2>
+<p>On July 24, I corrected an AWS Raycap alarm caused by an incorrectly bent top-Raycap clip. I then traced the 700/850 paths using VSWR checks and controlled disconnections at the bottom hardlines, finding crossed Alpha 700/850 secondary lines and crossed Gamma 700 secondary lines at the triplexers. Those local corrections removed known path errors before any conclusion was made about interference.</p>
+<div class="case-figure-grid">
+<figure class="case-figure"><a href="../assets/field-experience/hampton-park/photos/02-triplexer-path-check.jpg" rel="noopener" target="_blank"><img alt="Jerry checking color-coded Hampton Park RF jumper paths at the triplexer bank" loading="lazy" src="../assets/field-experience/hampton-park/photos/02-triplexer-path-check.jpg"/></a><figcaption>Color-coded jumper paths checked at the triplexer bank while tracing the crossed secondary lines.</figcaption></figure>
+<figure class="case-figure"><a href="../assets/field-experience/hampton-park/photos/03-triplexer-bank.jpg" rel="noopener" target="_blank"><img alt="Hampton Park triplexer bank and connected RF paths after routing checks" loading="lazy" src="../assets/field-experience/hampton-park/photos/03-triplexer-bank.jpg"/></a><figcaption>The triplexer bank and connected paths documented after the routing checks.</figcaption></figure>
+</div>
+
+<h2>Turn a suspected hardware fault into a controlled RF check</h2>
+<ol class="case-timeline">
+<li><strong>Review the moving symptom.</strong> The July 24 update records PIM that shifted during the day across sectors and technologies, with Gamma 850 secondary producing the worst readings. That variability did not behave like one fixed failed component.</li>
+<li><strong>Correct the remaining local jumper issue.</strong> On July 25, I corrected Beta PCS branch 2 PIM by securing a loose jumper at the radio.</li>
+<li><strong>Change only the antenna orientation.</strong> I had the tower crew tilt the Gamma G1 850 antenna upward while I compared the four branch readings from the ground.</li>
+<li><strong>Compare the same branches immediately.</strong> Gamma 850 branch 3 changed from a recorded -109 to -114 and branch 4 from -109 to -115 in the documented comparison—5 and 6 dB more negative within roughly 15 minutes.</li>
+<li><strong>Escalate the source-location work.</strong> Because the symptom changed with orientation and time, I recommended that the carrier's performance team locate the external emitter rather than replacing another antenna or feeder component.</li>
+</ol>
+<div class="case-figure-grid">
+<figure class="case-figure"><a href="../assets/field-experience/hampton-park/photos/04-gamma-antenna-tilted.jpg" rel="noopener" target="_blank"><img alt="Hampton Park Gamma G1 antenna tilted upward for the controlled RF comparison" loading="lazy" src="../assets/field-experience/hampton-park/photos/04-gamma-antenna-tilted.jpg"/></a><figcaption>The Gamma G1 antenna temporarily tilted upward for the controlled comparison.</figcaption></figure>
+<figure class="case-figure"><a href="../assets/field-experience/hampton-park/photos/05-tower-radio-group.jpg" rel="noopener" target="_blank"><img alt="Hampton Park antenna and radio group photographed from the tower" loading="lazy" src="../assets/field-experience/hampton-park/photos/05-tower-radio-group.jpg"/></a><figcaption>Tower-side antenna and radio group documented during the July 25 work.</figcaption></figure>
+</div>
+
+<h2>The branch comparison</h2>
+<p>The worksheet below is rendered directly from Jerry's July 25 PIM comparison. It preserves the full Alpha, Beta, and Gamma context while showing the targeted Gamma 850 change in branches 3 and 4.</p>
+<div class="data-artifact case-data-table"><div class="artifact-label">Gamma 850-LTE orientation comparison · recorded PIM readings</div><div class="table-scroll"><table><thead><tr><th>Condition</th><th>Branch 1</th><th>Branch 2</th><th>Branch 3</th><th>Branch 4</th></tr></thead><tbody>
+<tr><td>Pre · July 25</td><td>-112</td><td>-112</td><td>-109</td><td>-109</td></tr>
+<tr><td>G1 antenna tilted up</td><td>-112</td><td>-111</td><td>-114</td><td>-115</td></tr>
+<tr><td>Change</td><td>0 dB</td><td>1 dB</td><td class="pass">5 dB</td><td class="pass">6 dB</td></tr>
+</tbody></table></div></div>
+<figure class="case-figure contain full"><a href="../assets/field-experience/hampton-park/evidence/pim-orientation-comparison.jpg" rel="noopener" target="_blank"><img alt="Hampton Park worksheet comparing pre-check PIM readings with Gamma 850 branches 3 and 4 tilted upward" loading="lazy" src="../assets/field-experience/hampton-park/evidence/pim-orientation-comparison.jpg"/></a><figcaption>Original comparison worksheet: the Gamma 850 branch 3 and 4 cells move from the red -109 readings to -114 and -115 after the antenna was tilted upward.</figcaption></figure>
+
+<h2>Diagnose the category without overstating the source</h2>
+<p>The orientation response supported an external-interference diagnosis, but it did not identify the emitter. The original update mentions the elevated roadway in the Gamma direction only as a possibility. I documented the RF environment and passed source-location work to the performance team instead of presenting a hypothesis as a confirmed root cause.</p>
+<figure class="case-figure full"><a href="../assets/field-experience/hampton-park/photos/06-gamma-sector-environment.jpg" rel="noopener" target="_blank"><img alt="Roadway and bridge in the Hampton Park Gamma sector environment" loading="lazy" src="../assets/field-experience/hampton-park/photos/06-gamma-sector-environment.jpg"/></a><figcaption>RF environment in the Gamma sector direction. The specific external source was not located during this ticket.</figcaption></figure>
+<div class="scope-note"><strong>Scope boundary:</strong> The local alarm, routing, and loose-jumper faults were corrected. The controlled orientation check supported external interference as the remaining category, but the emitter itself was not identified; that work was escalated to the carrier's performance team.</div>
+
+<nav aria-label="Field case studies" class="case-nav"><h2>More field cases</h2><div class="case-nav-grid">
+<a class="case-nav-card" href="wireless-site-preintegration-validation.html"><span>Pre-integration recovery</span><strong>Bellevue</strong></a>
+<a class="case-nav-card" href="brook-hollow-radio-modernization.html"><span>Three-sector modernization</span><strong>Brook Hollow</strong></a>
+<a class="case-nav-card" href="gaston-pim-fault-isolation.html"><span>PIM fault isolation</span><strong>Gaston</strong></a>
+<a class="case-nav-card" href="henderson-springs-antenna-spacing-validation.html"><span>Rooftop RF validation</span><strong>Henderson Springs</strong></a>
+<a class="case-nav-card" href="hampton-park-external-interference-diagnosis.html" aria-current="page"><span>Interference diagnosis</span><strong>Hampton Park</strong></a>
+</div></nav>
+</article>
+<aside class="sidebar">
+<div class="panel"><div class="meta-list">
+<div class="meta-item"><strong>Site</strong><span>Hampton Park</span></div>
+<div class="meta-item"><strong>Carrier</strong><span>Verizon</span></div>
+<div class="meta-item"><strong>Ticket</strong><span>Carolinas 4xTx quality ticket</span></div>
+<div class="meta-item"><strong>Focus</strong><span>Gamma 850 secondary PIM behavior</span></div>
+<div class="meta-item"><strong>Methods</strong><span>VSWR path tracing, PIM comparison, controlled antenna orientation</span></div>
+<div class="meta-item"><strong>Dates</strong><span>July 24 and July 25, 2018</span></div>
+</div></div>
+<div class="panel"><div class="tags"><span class="tag">External Interference</span><span class="tag">PIM Analysis</span><span class="tag">RF Troubleshooting</span><span class="tag">Controlled Test</span><span class="tag">Gamma 850</span><span class="tag">VSWR</span><span class="tag">Feeder Mapping</span><span class="tag">Escalation</span></div></div>
+</aside>
+</div>
+</section>
+</main>
+<footer><div class="container footer-row"><span>© <span data-year=""></span> Jerry Atchison</span><span>Cloud, networking, security, and wireless field operations</span></div></footer>
+<script src="../script.js"></script>
+</body>
+</html>

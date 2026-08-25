@@ -439,6 +439,24 @@ footer{padding:2.5rem 0 3.5rem;color:var(--muted);border-top:1px solid rgba(255,
   grid-template-columns:repeat(3,minmax(0,1fr));
   gap:1.15rem
 }
+.field-work-hero{padding-bottom:1.1rem}
+.field-work-metrics{max-width:100%}
+.field-work-library{padding-top:2rem}
+.field-case-grid.field-case-library{grid-template-columns:repeat(2,minmax(0,1fr))}
+.field-overview-cta{
+  display:flex;
+  align-items:center;
+  justify-content:space-between;
+  gap:1.25rem;
+  margin-top:1.5rem;
+  padding:1.2rem;
+  border:1px solid var(--line);
+  border-radius:var(--radius);
+  background:rgba(84,214,202,.055)
+}
+.field-overview-cta div{display:grid;gap:.2rem}
+.field-overview-cta span{color:var(--muted);font-size:.92rem;line-height:1.5}
+.field-overview-cta .button{flex:0 0 auto}
 .field-case-card{
   display:flex;
   min-width:0;
@@ -591,14 +609,16 @@ footer{padding:2.5rem 0 3.5rem;color:var(--muted);border-top:1px solid rgba(255,
 }
 .case-nav{margin-top:2.6rem;padding-top:1.4rem;border-top:1px solid var(--line)}
 .case-nav h2{margin:0 0 1rem;font-size:1.2rem}
-.case-nav-grid{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:.7rem}
+.case-nav-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(150px,1fr));gap:.7rem}
 .case-nav-card{display:block;padding:.85rem;border:1px solid var(--line);border-radius:12px;background:rgba(255,255,255,.025);text-decoration:none}
 .case-nav-card span{display:block;color:var(--muted);font-size:.72rem;text-transform:uppercase;letter-spacing:.07em}
 .case-nav-card strong{display:block;margin-top:.2rem;color:var(--text);font-size:.9rem;line-height:1.35}
 .case-nav-card:hover,.case-nav-card:focus-visible{border-color:var(--accent);background:rgba(84,214,202,.07)}
+.case-nav-card[aria-current="page"]{border-color:var(--accent);background:rgba(84,214,202,.09)}
+.hampton-hero img{object-position:center 25%}
 
 @media(max-width:1000px){
-  .field-case-grid{grid-template-columns:1fr}
+  .field-case-grid,.field-case-grid.field-case-library{grid-template-columns:1fr}
   .field-case-card{display:grid;grid-template-columns:minmax(260px,.75fr) 1.25fr}
   .field-case-media{height:100%;min-height:300px;border-bottom:0;border-right:1px solid var(--line)}
 }
@@ -610,6 +630,7 @@ footer{padding:2.5rem 0 3.5rem;color:var(--muted);border-top:1px solid rgba(255,
   .case-figure.full{grid-column:auto}
   .case-figure a,.case-figure.full a{min-height:0}
   .case-figure img,.case-figure.full img{height:auto;max-height:none;object-fit:contain}
+  .field-overview-cta{align-items:flex-start;flex-direction:column}
 }
 @media(max-width:520px){
   .prototype-pdf{
