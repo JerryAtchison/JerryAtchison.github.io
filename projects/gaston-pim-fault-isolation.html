@@ -35,7 +35,7 @@
 <div class="container">
 <div class="eyebrow">Professional field project • July 31-August 6, 2018</div>
 <h1>Gaston Gamma 850 PIM Fault Isolation</h1>
-<p class="lead">Over three visits, I found and corrected crossed B-band transmit lines, then worked from the ground with the tower climbing crew to move and isolate the remaining PIM symptom. After the climbers brought down the G1 antenna, ground testing confirmed that both ports failed.</p>
+<p class="lead">Over three visits, I found and corrected crossed B-band transmit lines, then worked from the ground with the tower climbing crew to trace the remaining PIM problem. After the climbers brought down the G1 antenna, I tested it on the ground and confirmed that both ports failed.</p>
 <div class="case-status pending">Root cause isolated; replacement antenna pending</div>
 <div class="hero-actions"><a class="button secondary" href="../field-work.html">← Back to Field Work</a></div>
 </div>
@@ -64,8 +64,8 @@
 
 <h2>The isolation sequence</h2>
 <ol class="case-timeline">
-<li><strong>Ground hardline load moved the fault upward.</strong> Loading the Gamma 850 branch at the ground hardline showed the PIM source remained above the ground equipment.</li>
-<li><strong>A jumper swap made the symptom move.</strong> I had the climbing crew swap the BG and BGG coax jumpers at the antenna while I compared the PIM behavior from the ground. The problem moved from branch 3 to branch 4, pointing to the G1 antenna rather than the feeder path.</li>
+<li><strong>The ground hardline load ruled out the ground equipment.</strong> Loading the Gamma 850 branch at the ground hardline showed that the PIM source remained above the ground equipment.</li>
+<li><strong>The antenna jumper swap moved the problem.</strong> I had the climbing crew swap the BG and BGG coax jumpers at the antenna while I compared the PIM behavior from the ground. The problem moved from branch 3 to branch 4, pointing to the G1 antenna rather than the feeder path.</li>
 <li><strong>A known-good load passed at the antenna.</strong> With the climbing crew connecting a known-good load at the antenna, the BG control measured -159.8 dBc against a -143.0 dBc threshold.</li>
 <li><strong>The removed antenna failed on both ports.</strong> After the climbing crew brought the G1 antenna down, I tested it on the ground. BG measured -119.8 dBc and BGG measured -138.0 dBc, so both ports failed the same -143.0 dBc threshold.</li>
 </ol>
@@ -74,7 +74,7 @@
 <figure class="case-figure"><a href="../assets/field-experience/gaston/photos/04-antenna-ground-test.jpg" rel="noopener" target="_blank"><img alt="Gaston G1 antenna connected to a PIM tester on the ground" loading="lazy" src="../assets/field-experience/gaston/photos/04-antenna-ground-test.jpg"/></a><figcaption>The removed G1 antenna connected to the PIM analyzer for ground-level confirmation.</figcaption></figure>
 </div>
 
-<h2>Control and fault results tell the story</h2>
+<h2>Compare the load and antenna results</h2>
 <div class="data-artifact case-data-table"><div class="artifact-label">Gamma 850 PIM comparison · threshold -143.0 dBc</div><div class="table-scroll"><table><thead><tr><th>Test point</th><th>PIM</th><th>Peak PIM</th><th>Result</th></tr></thead><tbody>
 <tr><td>BG load at antenna</td><td>-159.8 dBc</td><td>-159.7 dBc</td><td class="pass">PASS</td></tr>
 <tr><td>BG antenna on ground</td><td>-119.8 dBc</td><td>-119.8 dBc</td><td class="fail">FAIL</td></tr>
@@ -87,7 +87,7 @@
 </div>
 
 <h2>Supporting fiber baseline</h2>
-<p>Earlier team validation supplied a clean fiber baseline: all 24 FiberChek inspections passed across six color pairs and their radio and RBS endpoints, and all six OTDR paths passed at both 1310 nm and 1550 nm. These tests were completed by a teammate and are included here as supporting site evidence, not as work I personally performed.</p>
+<p>Earlier site records provided a clean fiber baseline: all 24 FiberChek inspections passed across six color pairs and their radio and RBS endpoints, and all six OTDR paths passed at both 1310 nm and 1550 nm. A teammate completed these tests, so they are included only as supporting site information and are not presented as my work.</p>
 <div class="data-artifact case-data-table"><div class="artifact-label">Supporting dual-wavelength OTDR results</div><div class="table-scroll"><table><thead><tr><th>Path</th><th>1310 nm loss</th><th>1550 nm loss</th><th>Result</th></tr></thead><tbody>
 <tr><td>BG</td><td>0.462 dB</td><td>0.403 dB</td><td class="pass">PASS</td></tr>
 <tr><td>BY</td><td>0.398 dB</td><td>0.376 dB</td><td class="pass">PASS</td></tr>
@@ -101,10 +101,10 @@
 <figure class="case-figure contain full"><a href="../assets/field-experience/gaston/evidence/otdr-bg-summary.jpg" rel="noopener" target="_blank"><img alt="Passing Gaston BG dual-wavelength OTDR summary" loading="lazy" src="../assets/field-experience/gaston/evidence/otdr-bg-summary.jpg"/></a><figcaption>Representative BG OTDR summary: 0.462 dB at 1310 nm and 0.403 dB at 1550 nm, both passing.</figcaption></figure>
 </div>
 
-<h2>RMA handoff, with the remaining work stated plainly</h2>
-<p>I documented the antenna model and serial alongside the PIM reports, crossed-line photos, and isolation sequence. That package gave the cell technician and Amphenol the proof needed to request a replacement antenna.</p>
+<h2>Prepare the antenna RMA</h2>
+<p>I documented the antenna model and serial alongside the PIM reports, crossed-line photos, and isolation sequence. That package supported the request for a replacement antenna from Amphenol.</p>
 <figure class="case-figure full"><a href="../assets/field-experience/gaston/photos/05-antenna-model-serial.jpg" rel="noopener" target="_blank"><img alt="Amphenol model and serial label on the failed Gaston G1 antenna" loading="lazy" src="../assets/field-experience/gaston/photos/05-antenna-model-serial.jpg"/></a><figcaption>Model and serial documentation supplied with the PIM reports for the replacement request.</figcaption></figure>
-<div class="scope-note"><strong>Scope boundary:</strong> The August 6 update recorded the maintenance ticket at 50% while the replacement G1 antenna was still being supplied. The investigation and RMA evidence were complete; the final antenna replacement was not.</div>
+<div class="scope-note"><strong>Remaining work:</strong> The August 6 update recorded the maintenance ticket at 50% while the replacement G1 antenna was still being supplied. I completed the investigation and RMA evidence, but the final antenna replacement had not been completed.</div>
 
 <nav aria-label="Field case studies" class="case-nav"><h2>More field cases</h2><div class="case-nav-grid">
 <a class="case-nav-card" href="wireless-site-preintegration-validation.html"><span>Pre-integration recovery</span><strong>Bellevue</strong></a>
