@@ -56,27 +56,27 @@
 </div>
 
 <h2>Start by correcting the signal path</h2>
-<p>The July 31 quality ticket revealed that most B-band transmit lines had been crossed between the duplexers and quadplexers, routing them toward the wrong sectors or hardlines. I traced the 850 LTE transmit and receive paths through the 2212 radios, duplexers, quadplexers, diplexers, and hardlines, then corrected the line routing and color code.</p>
+<p>The July 31 quality ticket revealed crossed B-band transmit lines. I traced and verified the 850 LTE RF paths through the site equipment and hardlines, disconnecting and checking branches as needed and using the Anritsu during line identification. I then corrected the crossed connections and color coding.</p>
 <div class="case-figure-grid">
 <figure class="case-figure"><a href="../assets/field-experience/gaston/photos/02-crossed-transmit-lines.jpg" rel="noopener" target="_blank"><img alt="Crossed Gaston B-band transmit lines at the quadplexer bank" loading="lazy" src="../assets/field-experience/gaston/photos/02-crossed-transmit-lines.jpg"/></a><figcaption>The crossed B-band transmit lines before routing and color-code correction.</figcaption></figure>
-<figure class="case-figure"><a href="../assets/field-experience/gaston/photos/03-spectrum-analyzer.jpg" rel="noopener" target="_blank"><img alt="Anritsu Site Master return-loss trace used during Gaston troubleshooting" loading="lazy" src="../assets/field-experience/gaston/photos/03-spectrum-analyzer.jpg"/></a><figcaption>Anritsu return-loss trace captured during feeder-path troubleshooting.</figcaption></figure>
+<figure class="case-figure"><a href="../assets/field-experience/gaston/photos/03-spectrum-analyzer.jpg" rel="noopener" target="_blank"><img alt="Anritsu Site Master return-loss trace used during Gaston troubleshooting" loading="lazy" src="../assets/field-experience/gaston/photos/03-spectrum-analyzer.jpg"/></a><figcaption>Anritsu return-loss measurement used while tracing and verifying RF line routing during the crossed-line investigation.</figcaption></figure>
 </div>
 
 <h2>The isolation sequence</h2>
 <ol class="case-timeline">
 <li><strong>The ground hardline load ruled out the ground equipment.</strong> Loading the Gamma 850 branch at the ground hardline showed that the PIM source remained above the ground equipment.</li>
 <li><strong>The antenna jumper swap moved the problem.</strong> I had the climbing crew swap the BG and BGG coax jumpers at the antenna while I compared the PIM behavior from the ground. The problem moved from branch 3 to branch 4, pointing to the G1 antenna rather than the feeder path.</li>
-<li><strong>A known-good load passed at the antenna.</strong> With the climbing crew connecting a known-good load at the antenna, the BG control measured -159.8 dBc against a -143.0 dBc threshold.</li>
-<li><strong>The removed antenna failed on both ports.</strong> After the climbing crew brought the G1 antenna down, I tested it on the ground. BG measured -119.8 dBc and BGG measured -138.0 dBc, so both ports failed the same -143.0 dBc threshold.</li>
+<li><strong>A known-good PIM load passed when connected in place of the antenna.</strong> With the known-good load substituted for the antenna on the BG test path, the control measured -159.8 dBc against a -143.0 dBc threshold.</li>
+<li><strong>The removed G1 antenna failed on both tested ports.</strong> After the antenna was brought down, I tested it on the ground. The two tested antenna ports, identified in the test records as BG and BGG, measured -119.8 dBc and -138.0 dBc respectively, so both failed the -143.0 dBc threshold.</li>
 </ol>
 <div class="case-figure-grid">
-<figure class="case-figure"><a href="../assets/field-experience/gaston/photos/06-topside-load-test.jpg" rel="noopener" target="_blank"><img alt="Known-good PIM load connected at the Gaston antenna position" loading="lazy" src="../assets/field-experience/gaston/photos/06-topside-load-test.jpg"/></a><figcaption>Tower-crew photo of the known-good load used at the antenna position while I monitored the test from the ground.</figcaption></figure>
+<figure class="case-figure"><a href="../assets/field-experience/gaston/photos/06-topside-load-test.jpg" rel="noopener" target="_blank"><img alt="Known-good PIM load connected in place of the Gaston antenna" loading="lazy" src="../assets/field-experience/gaston/photos/06-topside-load-test.jpg"/></a><figcaption>Known-good PIM load connected in place of the antenna during fault isolation.</figcaption></figure>
 <figure class="case-figure"><a href="../assets/field-experience/gaston/photos/04-antenna-ground-test.jpg" rel="noopener" target="_blank"><img alt="Gaston G1 antenna connected to a PIM tester on the ground" loading="lazy" src="../assets/field-experience/gaston/photos/04-antenna-ground-test.jpg"/></a><figcaption>The removed G1 antenna connected to the PIM analyzer for ground-level confirmation.</figcaption></figure>
 </div>
 
 <h2>Compare the load and antenna results</h2>
 <div class="data-artifact case-data-table"><div class="artifact-label">Gamma 850 PIM comparison · threshold -143.0 dBc</div><div class="table-scroll"><table><thead><tr><th>Test point</th><th>PIM</th><th>Peak PIM</th><th>Result</th></tr></thead><tbody>
-<tr><td>BG load at antenna</td><td>-159.8 dBc</td><td>-159.7 dBc</td><td class="pass">PASS</td></tr>
+<tr><td>BG known-good load replacing antenna</td><td>-159.8 dBc</td><td>-159.7 dBc</td><td class="pass">PASS</td></tr>
 <tr><td>BG antenna on ground</td><td>-119.8 dBc</td><td>-119.8 dBc</td><td class="fail">FAIL</td></tr>
 <tr><td>BGG antenna on ground</td><td>-138.0 dBc</td><td>-137.5 dBc</td><td class="fail">FAIL</td></tr>
 </tbody></table></div></div>
